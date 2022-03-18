@@ -4,13 +4,19 @@ function App() {
   return (
     <div>
       window env:
-      <pre>{JSON.stringify(window.env.API_URL, null, 2)}</pre>
+      <p>API_URL: {JSON.stringify(window.env.API_URL)}</p>
       <hr />
-      <pre>{JSON.stringify(window.env.NODE_ENV, null, 2)}</pre>
+      <p>NODE_ENV: {JSON.stringify(window.env.NODE_ENV)}</p>
+      <hr />
+      <p>
+        BOOL: {JSON.stringify(window.env.BOOL)} ({typeof window.env.BOOL})
+      </p>
+      <hr />
+      <p>
+        NUM: {JSON.stringify(window.env.NUM)} ({typeof window.env.NUM})
+      </p>
       <hr />
       <pre>{JSON.stringify(window.env, null, 2)}</pre>
-      <hr />
-      <pre>{JSON.stringify(kek.API_URL, null, 2)}</pre>
     </div>
   );
 }

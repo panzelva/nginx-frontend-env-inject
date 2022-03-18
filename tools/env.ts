@@ -1,4 +1,4 @@
-import { cleanEnv, str, url } from "envalid";
+import { cleanEnv, num, str, url, bool } from "envalid";
 
 export function getBrowserEnv() {
   return cleanEnv(process.env, {
@@ -6,6 +6,8 @@ export function getBrowserEnv() {
       choices: ["development", "production", "staging", "test"],
     }),
     API_URL: url({ default: "http://localhost:4000" }),
+    NUM: num({ default: 0 }),
+    BOOL: bool({ default: true }),
   });
 }
 
