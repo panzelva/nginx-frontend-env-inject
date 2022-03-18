@@ -1,0 +1,43 @@
+{
+  "name": "@fullstack-rest-template/frontend",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/runtime": "^7.15.3",
+    "core-js": "3.21.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "dotenv": "^16.0.0",
+    "envalid": "^7.3.0",
+    "esbuild": "^0.14.27",
+    "esbuild-runner": "^2.2.1",
+    "fork-ts-checker-webpack-plugin": "^7.2.1",
+    "html-webpack-plugin": "^5.3.2",
+    "node-html-parser": "^5.3.3",
+    "react-refresh": "^0.11.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve --mode development",
+    "build": "pnpm run build:startup && pnpm run build:web",
+    "build:web": "NODE_ENV=production webpack --mode production",
+    "build:startup": "esbuild --bundle --platform=node --target=node12 --outdir=build --sourcemap tools/start.ts"
+  }
+}

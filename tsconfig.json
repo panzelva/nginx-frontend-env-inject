@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["es2020", "dom"],
+    "target": "es2020",
+
+    "moduleResolution": "node",
+    "importsNotUsedAsValues": "preserve",
+    "forceConsistentCasingInFileNames": true,
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "noEmit": true
+  }
+}
