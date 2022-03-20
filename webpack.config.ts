@@ -6,11 +6,12 @@ import HtmlWebPackPlugin from "html-webpack-plugin";
 import path from "path";
 import webpack from "webpack";
 import "webpack-dev-server";
-import { getWebpackDefineObj } from "./tools/env";
+import { getBrowserEnv, getWebpackDefineObj } from "./tools/container/env";
 
 // TODO: types
 const cfg = (env: any, argv: any): webpack.Configuration => {
   dotenv.config();
+  const browserEnv = getBrowserEnv();
   const isDev = argv.mode !== "production";
 
   return {
@@ -41,8 +42,7 @@ const cfg = (env: any, argv: any): webpack.Configuration => {
       new CleanWebpackPlugin(),
       ...(isDev
         ? [
-            new webpack.DefinePlugin(getWebpackDefineObj()),
-            new webpack.HotModuleReplacementPlugin(),
+            new webpack.DefinePlugin(getWebpackDefineObj(browserEnv)),
             new ReactRefreshWebpackPlugin(),
           ]
         : []),
@@ -51,6 +51,9 @@ const cfg = (env: any, argv: any): webpack.Configuration => {
       splitChunks: {
         chunks: "all",
       },
+    },
+    devServer: {
+      hot: true,
     },
   };
 };

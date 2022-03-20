@@ -16,15 +16,13 @@ export type BrowserEnv = Omit<
   "isDevelopment" | "isDev" | "isProduction" | "isProd" | "isTest"
 >;
 
-export function getWebpackDefineObj(): Record<string, string> {
-  const cleanedEnv = getBrowserEnv();
-
+export function getWebpackDefineObj(env: BrowserEnv): Record<string, string> {
   return {
     ...Object.fromEntries(
-      Object.entries(cleanedEnv).map(([key, value]) => {
+      Object.entries(env).map(([key, value]) => {
         return [`window.env.${key}`, JSON.stringify(value)];
       })
     ),
-    ["window.env"]: JSON.stringify(cleanedEnv),
+    ["window.env"]: JSON.stringify(env),
   };
 }

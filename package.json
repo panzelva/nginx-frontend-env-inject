@@ -2,6 +2,7 @@
   "name": "nginx-frontend-env-inject",
   "version": "0.1.0",
   "license": "UNLICENSED",
+  "packageManager": "pnpm@6.32.3",
   "dependencies": {
     "@babel/runtime": "^7.15.3",
     "core-js": "3.21.1",
@@ -38,6 +39,6 @@
     "start": "NODE_ENV=development webpack serve --mode development",
     "build": "pnpm run build:startup && pnpm run build:web",
     "build:web": "NODE_ENV=production webpack --mode production",
-    "build:startup": "esbuild --bundle --platform=node --target=node12 --outdir=build --sourcemap tools/start.ts"
+    "build:startup": "esbuild --bundle --platform=node --target=node12 --outdir=build --sourcemap tools/container/main.ts"
   }
 }

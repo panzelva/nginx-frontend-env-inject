@@ -12,5 +12,5 @@ COPY --from=node /usr/local/bin /usr/local/bin
 COPY dist /usr/share/nginx/html
 COPY build/* /srv/
 
-ENTRYPOINT ["node"]
-CMD ["/srv/start.js"]
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["node /srv/main.js && nginx -g 'daemon off;'"]
